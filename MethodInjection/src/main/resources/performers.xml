@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
+
+	<bean id="magicbox" class="com.zensar.spring.magicboxes.MagicBoxImpl">
+	<replaced-method name="getContains" replacer="magicBoxReplacer"></replaced-method>
+	</bean>
+	<bean id="jadugar" class="com.zensar.spring.performer.Magician">
+		<property name="magicWords" value="abra ka dabra"></property>
+		<property name="magicBox" ref="magicbox"></property>
+	</bean>
+
+<bean id="magicBoxReplacer" class="com.zensar.spring.replacers.MagicBoxReplacers"></bean>
+</beans>
